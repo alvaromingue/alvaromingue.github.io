@@ -1,4 +1,4 @@
-const projectList = ['project1', 'project2'];
+const projectList = ['project1', 'project2', 'project3', 'project4','project5' ,'project6','project7'];
 const gallery = document.querySelector('.gallery');
 projectList.forEach(proj => {
   fetch(`projects/${proj}/info.json`).then(res => res.json()).then(info => {
