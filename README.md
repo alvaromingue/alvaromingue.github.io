@@ -1,7 +1,10 @@
-# Portfolio ALVAROMINGUE - Demo con 7 proyectos
-1. Pon en cada carpeta de /projects/projectX estas imágenes:
-   - thumb.jpg (miniatura)
-   - main.jpg (imagen grande)
-2. No hace falta editar nada más.
+# Portfolio ALVAROMINGUE
 
-Puedes usar imágenes de Unsplash o tus propios trabajos.
+## Cómo añadir proyectos
+1. Crea una carpeta en /projects/nombreproyecto
+2. Añade:
+   - thumb.jpg (miniatura para work)
+   - main.jpg (imagen grande de proyecto)
+   - info.json (con title, tag, desc)
+
+El grid y las páginas se generan automáticamente.
