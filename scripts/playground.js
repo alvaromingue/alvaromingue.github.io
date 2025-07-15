@@ -1,0 +1,1 @@
+// Aquí iría la lógica interactiva 3D

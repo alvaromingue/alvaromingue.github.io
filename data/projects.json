@@ -1,0 +1,16 @@
+[
+  {
+    "id": "project1",
+    "title": "Proyecto Uno",
+    "description": "Descripción del proyecto uno.",
+    "thumb": "assets/images/project1/thumb.jpg",
+    "images": ["assets/images/project1/img1.jpg", "assets/images/project1/img2.jpg"]
+  },
+  {
+    "id": "project2",
+    "title": "Proyecto Dos",
+    "description": "Descripción del proyecto dos.",
+    "thumb": "assets/images/project2/thumb.jpg",
+    "images": ["assets/images/project2/img1.jpg", "assets/images/project2/img2.jpg"]
+  }
+]
