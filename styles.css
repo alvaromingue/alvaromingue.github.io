@@ -14,10 +14,9 @@ body {
 
 .left {
   flex: 1;
+  height: 100vh;
   background: #f2f2f2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  overflow: hidden;
 }
 
 .right {

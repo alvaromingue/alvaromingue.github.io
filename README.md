@@ -4,7 +4,7 @@
 Este es el portfolio web de ALVAROMINGUE, diseñador con experiencia en proyectos publicitarios para grandes marcas.
 
 ## ¿Qué incluye?
-- Modelo 3D interactivo con auto rotación.
+- Modelo 3D interactivo de Sketchfab embebido sin marca de agua.
 - Bio profesional y sección de proyectos.
 - Estilo minimalista, responsive y fácil de editar.
 
