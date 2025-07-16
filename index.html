@@ -1,37 +1,68 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1000, initial-scale=1.0">
   <title>ALVAROMINGUE Portfolio</title>
-  <link rel="stylesheet" href="styles/home.css" />
+  <link rel="stylesheet" href="styles/home.css">
 </head>
 <body>
   <div class="container">
+    <!-- Izquierda: imagen/video -->
     <div class="left">
-      <iframe 
-        title="Hachikō"
-        src="https://sketchfab.com/models/a01f5a8f083649b3b77676e9a2d01076/embed?ui_controls=0&ui_infos=0&ui_watermark=0&ui_watermark_link=0"
-        frameborder="0"
-        allowfullscreen 
-        mozallowfullscreen="true" 
-        webkitallowfullscreen="true"
-        allow="autoplay; fullscreen; xr-spatial-tracking"
-        style="width: 100%; height: 100%;">
-      </iframe>
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1000&q=80" alt="3D Render" />
     </div>
+    <!-- Derecha: contenido -->
     <div class="right">
-      <h1>ALVAROMINGUE</h1>
-      <p>Diseñador con experiencia en publicidad. Dirección artística para marcas como CocaCola, Hermès, McDonalds, Nissan...</p>
-      <nav>
-        <ul>
-          <li><a href="work.html">Work</a></li>
-          <li><a href="#" onclick="alert('Coming Soon')">Playground</a></li>
-          <li><a href="#" onclick="alert('Coming Soon')">Shop</a></li>
-          <li><a href="#" onclick="alert('Contacto: alvaro@correo.com')">Contact</a></li>
-        </ul>
-      </nav>
+      <svg 
+        id="svg-overlay" viewBox="0 0 800 120"><path d="M5.11644 42H1.10959L12.6986 10.4384H16.6438L28.2329 42H24.226L14.7945 15.4315H14.5479L5.11644 42ZM6.59589 29.6712H22.7466V33.0616H6.59589V29.6712ZM33.149 42V10.4384H36.9709V38.6096H51.6421V42H33.149ZM55.8878 10.4384L65.2577 37.0068H65.6276L74.9974 10.4384H79.0043L67.4152 42H63.47L51.881 10.4384H55.8878ZM82.5026 42H78.4957L90.0848 10.4384H94.03L105.619 42H101.612L92.1806 15.4315H91.9341L82.5026 42ZM83.982 29.6712H100.133V33.0616H83.982V29.6712ZM110.535 42V10.4384H121.199C123.665 10.4384 125.689 10.8596 127.271 11.7021C128.854 12.5342 130.025 13.6798 130.785 15.1387C131.545 16.5976 131.926 18.2568 131.926 20.1164C131.926 21.976 131.545 23.625 130.785 25.0634C130.025 26.5017 128.859 27.6318 127.287 28.4538C125.715 29.2654 123.706 29.6712 121.261 29.6712H112.631V26.2192H121.138C122.823 26.2192 124.179 25.9726 125.206 25.4795C126.244 24.9863 126.994 24.2877 127.456 23.3836C127.929 22.4692 128.165 21.3801 128.165 20.1164C128.165 18.8527 127.929 17.7483 127.456 16.8031C126.984 15.8579 126.229 15.1284 125.191 14.6147C124.153 14.0908 122.782 13.8288 121.076 13.8288H114.357V42H110.535ZM125.391 27.8219L133.158 42H128.72L121.076 27.8219H125.391ZM164.924 26.2192C164.924 29.5479 164.323 32.4247 163.121 34.8493C161.919 37.274 160.27 39.1438 158.174 40.4589C156.078 41.774 153.684 42.4315 150.993 42.4315C148.301 42.4315 145.907 41.774 143.811 40.4589C141.715 39.1438 140.066 37.274 138.864 34.8493C137.662 32.4247 137.061 29.5479 137.061 26.2192C137.061 22.8904 137.662 20.0137 138.864 17.589C140.066 15.1644 141.715 13.2945 143.811 11.9795C145.907 10.6644 148.301 10.0068 150.993 10.0068C153.684 10.0068 156.078 10.6644 158.174 11.9795C160.27 13.2945 161.919 15.1644 163.121 17.589C164.323 20.0137 164.924 22.8904 164.924 26.2192Z" fill="#111"/>
+      </svg>
+      <div class="header-row">
+        <span class="refresh" id="refresh-btn">refresh</span>
+      </div>
+      <div class="main-right">
+        <nav class="nav-links">
+          <a href="shop.html">SHOP<span class="arrow">↗</span></a>
+          <a href="contact.html">CONTACT<span class="arrow">↗</span></a>
+          <a href="work.html">WORK<span class="arrow">↗</span></a>
+        </nav>
+        <div class="info-grid">
+          <div class="info-left">
+            <div class="info-block">
+              <h3>BIO</h3>
+              <p>Lorem ipsum dolor sit amet consectetur. Hendrerit vivamus lectus ut faucibus euismod dui. Arcu nunc vulputate a volutpat. Ultrices porttitor volutpat nunc blandit. Quam montes diam nisi pharetra consequat duis sed donec morbi. Lorem ipsum dolor.</p>
+            </div>
+            <div class="info-block">
+              <h3>Brands</h3>
+              <p>Lorem ipsum dolor sit amet consectetur. Hendrerit vivamus lectus ut faucibus euismod dui. Arcu nunc vulputate a volutpat.</p>
+            </div>
+          </div>
+          <div class="info-right">
+            <div class="info-sideblock">
+              <div class="subtitle"><span class="highlight">Currently</span></div>
+              <div>EXTE<br>3D Product Designer<br>since 2022</div>
+            </div>
+            <div class="info-sideblock">
+              <div class="subtitle">Teaching</div>
+              <div>ajsbfajs URJC 2018<br>asfnaksf URKC 2020</div>
+            </div>
+            <div class="info-sideblock">
+              <div class="subtitle">Focus</div>
+              <div>3D design<br>Mo-graph<br>AR dev<br>R&D</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+  <!-- JS para cambio de color por refresh -->
+  <script>
+    const palettes = ['', 'theme-2', 'theme-3'];
+    let paletteIndex = 0;
+    document.getElementById('refresh-btn').addEventListener('click', function() {
+      paletteIndex = (paletteIndex + 1) % palettes.length;
+      document.body.className = palettes[paletteIndex];
+    });
+  </script>
 </body>
 </html>

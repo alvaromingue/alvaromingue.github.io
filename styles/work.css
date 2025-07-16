@@ -1,3 +1,4 @@
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -5,23 +6,20 @@ body {
   color: #111;
   padding: 40px;
 }
-h1 {
-  text-align: center;
-  margin-bottom: 40px;
-}
 .gallery {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
+  gap: 24px;
 }
 .gallery-item {
   position: relative;
   background: #eaeaea;
   aspect-ratio: 3 / 4;
   overflow: hidden;
-  border-radius: 0px;
+  border-radius: 16px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.06);
   cursor: pointer;
+  display: block;
 }
 .gallery-item img {
   width: 100%;
@@ -30,44 +28,49 @@ h1 {
   display: block;
   transition: filter 0.3s;
 }
-.gallery-info {
-  position: absolute;
-  bottom: 16px;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  padding: 0 16px;
-  align-items: flex-end;
-  opacity: 0;
-  transition: opacity 0.3s;
-  z-index: 2;
+/* Overlay SVG Bicolor */
+#svg-overlay {
+  position: fixed;
+  right: 20%;
+  top: 200px;
+  z-index: 999;
+  transform: translate(50%, 0);
+  pointer-events: none;
+  width: 55vw;
+  height: 120px;
+  max-width: 800px;
+  min-width: 340px;
 }
-.project-name {
-  color: #111;
-  font-weight: bold;
-  font-size: 1.1rem;
-  background: rgba(255,255,255,0.6);
-  padding: 3px 8px;
-  border-radius: 8px;
-}
-.project-type {
-  color: #111;
-  background: #bbff00;
-  border-radius: 100px;
-  padding: 3px 16px;
-  font-weight: bold;
-  font-size: 1rem;
-  margin-left: 8px;
+/* Botón Home */
+.home-btn {
+  position: fixed;
+  left: 40px;
+  top: 40px;
+  width: 58px;
+  height: 58px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
   display: flex;
   align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  border: none;
+  outline: none;
+  transition: box-shadow 0.2s, transform 0.18s;
+  cursor: pointer;
 }
-.gallery-item:hover .gallery-info { opacity: 1; }
-.gallery-item:hover img { filter: brightness(0.85) blur(2px); }
-@media (max-width: 900px) {
-  .gallery { grid-template-columns: 1fr 1fr; }
+.home-btn:hover {
+  box-shadow: 0 4px 18px rgba(0,0,0,0.15);
+  transform: scale(1.08);
+  background: #f0f0f0;
 }
-@media (max-width: 600px) {
-  .gallery { grid-template-columns: 1fr; }
-  body { padding: 8px; }
+.home-btn svg {
+  width: 28px;
+  height: 28px;
+  fill: #222;
+  transition: fill 0.2s;
+}
+.home-btn:hover svg {
+  fill: #d18e23;
 }
