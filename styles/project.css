@@ -1,60 +1,70 @@
-html, body {
-  height: 100%;
+
+body, html {
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  height: 100%;
   font-family: Arial, sans-serif;
   background: #fff;
   color: #111;
 }
-
 .container {
   display: flex;
+  flex-direction: row;
   height: 100vh;
 }
-
 .left {
   flex: 1;
   background: #f2f2f2;
-  overflow: hidden;
-  height: 100vh;
-  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
-.scroll-panel {
-  overflow-y: auto;
-  height: 100vh;
-  width: 100%;
-  display: block;
-  scrollbar-width: none; /* Firefox */
-}
-.scroll-panel::-webkit-scrollbar {
-  display: none;         /* Chrome/Safari */
-}
-.scroll-panel img {
-  width: 100%;
-  display: block;
-  object-fit: cover;
-  margin: 0 0 32px 0;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.05);
-  /* El alto se controla por style="height:..." en el HTML */
-  max-width: 100%;
-  max-height: none;
-}
-
 .right {
   flex: 1;
   padding: 40px;
-  overflow: hidden;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: #fff;
-  height: 100vh;
-  position: relative;
 }
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 40px;
+}
+nav li {
+  margin-bottom: 10px;
+}
+nav a {
+  color: #007acc;
+  text-decoration: none;
+  font-size: 18px;
+  border-radius: 32px;
+  padding: 6px 18px;
+  transition: background .2s;
+}
+nav a:hover {
+  text-decoration: underline;
+  background: #f2f2f2;
+}
+.fixed-text { position: fixed; top: 200px;transform: translateX(-50%);right: 300px; font-size: 2.4rem; font-weight: bold; z-index: 999; pointer-events: none; }
 
-/* Botón volver, si lo usas */
+@media (max-width: 900px) {
+  .container { flex-direction: column; }
+  .left, .right { flex: 1 1 50vh; width: 100vw; height: 50vh; }
+}
+#svg-overlay {
+  position: fixed;
+  right: 20%;
+  top: 200px;
+  z-index: 999;
+  transform: translate(50%, 0);
+  pointer-events: none;
+  width: 55vw;
+  height: 120px;
+  max-width: 800px;
+  min-width: 340px;
+}
 .back-btn {
   position: fixed;
   top: 32px;
@@ -69,70 +79,109 @@ html, body {
   z-index: 21;
 }
 
-/* Responsive */
-@media (max-width: 900px) {
-  .container {
-    flex-direction: column;
-  }
-  .left, .right {
-    flex: 1 1 50vh;
-    width: 100vw;
-    height: 50vh;
-    padding: 20px;
-  }
-  .scroll-panel {
-    height: 50vh;
-  }
-  .right {
-    height: 50vh;
-    padding: 20px;
-  }
+#content-scroll{
+
+  display: block;
 }
 
-#svg-overlay {
-  position: fixed;
-  right: 20%;
-  top: 200px;
-  z-index: 999;
-  transform: translate(50%, 0);
-  pointer-events: none;
-  width: 55vw;
-  height: 120px;
-  max-width: 800px;
-  min-width: 340px;
-}
-
-
-/* Botón Home */
-.home-btn {
-  position: fixed;
-  left: 40px;
-  top: 40px;
-  width: 58px;
-  height: 58px;
-  background: #fff;
-  border-radius: 50%;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+.left {
+  flex: 1;
+  background: #f2f2f2;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  /* No centrar, deja crecer la columna */
+  padding: 0;
+  overflow: hidden; /* importante para que no salga scroll doble */
+}
+
+.scroll-panel {
+  overflow-y: auto;
+  height: 100vh;
+  width: 100%;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+
+
+.right {
+  flex: 1;
+  padding: 40px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  z-index: 1000;
-  border: none;
-  outline: none;
-  transition: box-shadow 0.2s, transform 0.18s;
-  cursor: pointer;
+  position: sticky;   /* queda fija si quieres que no haga scroll */
+  top: 0;
+  height: 100vh;
+  background: #fff;
 }
-.home-btn:hover {
-  box-shadow: 0 4px 18px rgba(0,0,0,0.15);
-  transform: scale(1.08);
-  background: #f0f0f0;
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Evita scroll general */
 }
-.home-btn svg {
-  width: 28px;
-  height: 28px;
-  fill: #222;
-  transition: fill 0.2s;
+
+.container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
 }
-.home-btn:hover svg {
-  fill: #d18e23;
+
+.left {
+  flex: 1;
+  background: #ffffff;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
 }
+
+.scroll-panel {
+  overflow-y: auto;
+  width: 100%;
+  height: 100vh;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  /* Oculta la barra de scroll */
+  scrollbar-width: none; /* Firefox */
+}
+.scroll-panel::-webkit-scrollbar { /* Chrome/Safari */
+  display: none;
+}
+
+.scroll-panel img {
+  width: 100% !important;
+  display: block;
+  /* El alto lo controlas por style="height:..." */
+  object-fit: cover;
+  max-width: 100%;
+  margin: 0;
+  /* Asegúrate que NO hay max-height */
+  max-height: none !important;
+}
+
+
+.right {
+  flex: 1;
+  padding: 40px;
+  overflow: hidden; /* Nada de scroll aquí */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #fff;
+  height: 100vh;
+  position: relative;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* NO hay scroll general */
+}
+
