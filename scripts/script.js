@@ -7,12 +7,10 @@ function updateTextMask() {
   const galleryRect = gallery.getBoundingClientRect();
 
   // Calcula la franja horizontal de la galería DENTRO del SVG en pantalla
-  // Puede que la galería sea más pequeña o esté desplazada respecto al SVG
   const interLeft = Math.max(svgRect.left, galleryRect.left);
   const interRight = Math.min(svgRect.right, galleryRect.right);
 
   // Solo se dibuja máscara para la parte del SVG que está encima de la galería
-  // El área útil del SVG en el eje X es [visibleX1, visibleX2]
   const visibleX1 = ((interLeft - svgRect.left) / svgRect.width) * 800;
   const visibleX2 = ((interRight - svgRect.left) / svgRect.width) * 800;
 
@@ -47,8 +45,64 @@ function updateTextMask() {
       }
     }
   });
+
+  // --- Aquí se actualiza el GIF dual ---
+  updateDualGif();
 }
 
+// Esta función cambia el GIF según si está sobre una imagen blanca o negra
+function updateDualGif() {
+  const svg = document.getElementById('svg-overlay');
+  const gallery = document.querySelector('.gallery');
+  const gif = document.getElementById('dual-gif');
+  if (!svg || !gallery || !gif) return;
+
+  const svgRect = svg.getBoundingClientRect();
+  const galleryRect = gallery.getBoundingClientRect();
+  const gifRect = gif.getBoundingClientRect();
+
+  // Centro del GIF
+  const gifCenterX = gifRect.left + gifRect.width / 2;
+  const gifCenterY = gifRect.top + gifRect.height / 2;
+
+  // 1. ¿El centro del GIF está dentro del área de la galería y dentro del SVG?
+  const inGallery =
+    gifCenterX >= Math.max(svgRect.left, galleryRect.left) &&
+    gifCenterX <= Math.min(svgRect.right, galleryRect.right) &&
+    gifCenterY >= Math.max(svgRect.top, galleryRect.top) &&
+    gifCenterY <= Math.min(svgRect.bottom, galleryRect.bottom);
+
+  let gifIsWhite = false;
+
+  if (inGallery) {
+    // 2. Ahora, ¿ese punto está sobre una imagen blanca?
+    const images = Array.from(document.querySelectorAll('.gallery-item img'));
+    images.forEach(img => {
+      if (img.getAttribute('data-text-color') !== "white") return;
+      const rect = img.getBoundingClientRect();
+      if (
+        gifCenterX >= rect.left &&
+        gifCenterX <= rect.right &&
+        gifCenterY >= rect.top &&
+        gifCenterY <= rect.bottom
+      ) {
+        gifIsWhite = true;
+      }
+    });
+  }
+
+  // 3. Solo cambia a blanco si está dentro de la galería, el SVG y una máscara blanca. 
+  // Si no, negro.
+  if (gifIsWhite) {
+    gif.src = "assets/imagen_icon_static_white.gif";
+  } else {
+    gif.src = "assets/imagen_icon_static.gif";
+  }
+}
+
+
+
+// Listeners
 window.addEventListener('scroll', updateTextMask);
 window.addEventListener('resize', updateTextMask);
 window.addEventListener('DOMContentLoaded', () => {

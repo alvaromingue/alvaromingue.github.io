@@ -284,6 +284,28 @@ body {
   /* max-width: 500px; */
   margin: 5% 5% 5% 0%;
 }
+
+.svg-desktop-lottie {
+  position: relative;
+  width: 340px;
+  height: auto;
+  display: inline-block;
+}
+.svg-desktop-lottie svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.svg-desktop-lottie dotlottie-wc {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: auto;
+  cursor: pointer;
+}
+.svg-mob-lottie {
+  display: none !important;
+}
 /* MOBILE LAYOUT */
 @media (max-width: 1000px) {
   .mobile-tab-row {
@@ -372,7 +394,9 @@ body {
     margin-left: 8px;
     padding-right: 2vw;
   }
-
+ #tenthLottiemob {
+  display: none;
+ }
 
   @keyframes fadein {
     from {
@@ -392,7 +416,28 @@ body {
 .svg-desktop
 {display: none;}
   
-  
+#dual-gif-mobile  {
+
+  display: none;
+}
+
+.svg-desktop dotlottie-wc {
+  height: 100%;
+  width: auto;
+  max-height: 100%;
+  display: block;
+  pointer-events: none; /* Hace que el usuario no pueda interactuar con el lottie si no quieres */
+}
+
+.svg-desktop dotlottie-wc {
+  min-height: 600px;
+  aspect-ratio: 1/1;
+}
+
+#gif-alvaromingue {
+  margin: 20px; 
+  display: block;
+}
 }
   /* MOBILE ONLY: muestra este layout solo en móvil */
   @media (min-width: 1001px) {
@@ -555,6 +600,16 @@ body {
     display: none;
   }
 
+  .svg-mob-lottie {
+    display: flex !important;
+    position: absolute;
+    top: 20%;
+  }
+  .svg-desktop-lottie {
+    display: none !important;
+   
+    
+  }
   }
   
   @media (min-width: 2000px) {
@@ -664,5 +719,10 @@ min-width: 180px;
   BOTTOM: 0%;
   left: 50%;
   display: none;
+}
+.svg-desktop-lottie {
+
+  left: 0%;
+  transform: translateX(-20vw);
 }
 }
