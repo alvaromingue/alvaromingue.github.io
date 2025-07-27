@@ -723,6 +723,6 @@ min-width: 180px;
 .svg-desktop-lottie {
 
   left: 0%;
-  transform: translateX(-20vw);
+  transform: translateX(-0vw);
 }
 }
